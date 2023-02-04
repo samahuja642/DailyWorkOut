@@ -1,23 +1,26 @@
 #include<bits/stdc++.h>
+
 using namespace std;
+
+typedef long long ll;
+#define fast ios_base::sync_with_stdio(false);cin.tie(NULL);
+
 int main(){
-    int n;
-    cin>>n;
-    unordered_map<string,int>count;
-    for(int i=0;i<n;i++){
-        string temp;
-        cin>>temp;
-        count[temp]++;
-    }
-    string ans;
-    int maxi = INT_MIN;
-    for(auto it=count.begin();it!=count.end();it++){
-        cout<<it->second<<endl;
-        if(it->second>maxi){
-            maxi = it->second;
-            ans = it->first;
+    // freopen("input.txt","r",stdin);
+    // freopen("output.txt","w",stdout);
+    fast
+    int t;
+    cin>>t;
+    while(t--){
+        char c;
+        cin>>c;
+        string str = "codeforces";
+        bool possible = false;
+        for(int i=0;i<str.length();i++){
+            if(c==str[i])possible = true;
         }
+        if(possible)cout<<"YES"<<endl;
+        else cout<<"NO"<<endl;
     }
-    cout<<ans<<endl;
     return 0;
 }
