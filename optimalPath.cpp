@@ -9,14 +9,16 @@ int main(){
     // freopen("input.txt","r",stdin);
     // freopen("output.txt","w",stdout);
     fast
-    int n=5;
-    int a[n];
-    for(int i=0;i<n;i++)cin>>a[i];
-    int b[n];
-    for(int i=0;i<n;i++){
-        b[i] = (i-1>=0&&i-1<n?a[i-1]:0)+(i+1>=0&&i+1<n?a[i+1]:0)+a[i];
-        cout<<b[i]<<" ";
+    ll t;
+    cin>>t;
+    while(t--){
+        ll n,m;
+        cin>>n>>m;
+        ll ans = (m*(m+1))/2 - m;
+        // cout<<ans<<endl;
+        ans += (m*n*(n+1))/2;
+        // cout<<(n*m*(m+1))/2<<endl;
+        cout<<ans<<endl;
     }
-    cout<<endl;
     return 0;
 }

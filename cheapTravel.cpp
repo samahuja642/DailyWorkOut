@@ -9,14 +9,8 @@ int main(){
     // freopen("input.txt","r",stdin);
     // freopen("output.txt","w",stdout);
     fast
-    int n=5;
-    int a[n];
-    for(int i=0;i<n;i++)cin>>a[i];
-    int b[n];
-    for(int i=0;i<n;i++){
-        b[i] = (i-1>=0&&i-1<n?a[i-1]:0)+(i+1>=0&&i+1<n?a[i+1]:0)+a[i];
-        cout<<b[i]<<" ";
-    }
-    cout<<endl;
+    ll n,m,a,b;
+    cin>>n>>m>>a>>b;
+    cout<<min((n-n%m)*a,(n/m)*b)+((n%m)*a)<<endl;
     return 0;
 }
