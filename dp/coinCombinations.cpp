@@ -19,17 +19,28 @@ int main(){
     for(ll i=1;i<=n;i++){
         cin>>c[i];
     }
-    vector<vector<ll>>dp(n+1,vector<ll>(x+1));
-    for(ll i=1;i<=n;i++){
-        for(ll j=0;j<=x;j++){
-            if(j==0){
-                dp[i][j] = 1;
-            }
-            else{
-                dp[i][j] = ((i==1?0:dp[i-1][j])%MOD + (c[i]>j?0:dp[i][j-c[i]])%MOD)%MOD;
-            }
+    // coin combination 2nd
+    // vector<vector<ll>>dp(n+1,vector<ll>(x+1));
+    // for(ll i=1;i<=n;i++){
+    //     for(ll j=0;j<=x;j++){
+    //         if(j==0){
+    //             dp[i][j] = 1;
+    //         }
+    //         else{
+    //             dp[i][j] = ((i==1?0:dp[i-1][j])%MOD + (c[i]>j?0:dp[i][j-c[i]])%MOD)%MOD;
+    //         }
+    //     }
+    // }
+    // cout<<dp[n][x]<<endl;
+
+    //coin combination 1st
+    vector<ll>dp(x+1,1);
+    for(ll i=1;i<=x;i++){
+        dp[i] = 0;
+        for(ll j=1;j<=n;j++){
+            dp[i] = (dp[i]%MOD + (c[j]>i?0:dp[i-c[j]])%MOD)%MOD;
         }
     }
-    cout<<dp[n][x]<<endl;
+    cout<<dp[x]<<endl;
     return 0;
 }
